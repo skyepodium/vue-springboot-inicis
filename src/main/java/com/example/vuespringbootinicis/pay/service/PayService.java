@@ -54,14 +54,6 @@ public class PayService {
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println("!!!! send after");
-
-        // print status code
-        System.out.println(response.statusCode());
-
-        // print response body
-        System.out.println(response.body());
-
         return response.body();
     }
 

@@ -32,16 +32,13 @@
         value="1000"
       >
     </form>
-
-    <iframe 
-      name="PayForm" 
-      width="880" 
-      height="672"
-    />    
-
     <button @click="sendForm">
       결제 요청
     </button>
+    <iframe 
+      name="PayForm" 
+      style="display:block; width:100vw; height: 100vh"
+    />
   </div>
 </template>
 
@@ -54,7 +51,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

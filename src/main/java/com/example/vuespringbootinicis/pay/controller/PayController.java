@@ -29,9 +29,10 @@ public class PayController {
         return "close";
     }
 
-    @ResponseBody
     @PostMapping("/return")
     public String pcReturn(PcPayReturn pcPayReturn) throws IllegalAccessException, IOException, InterruptedException {
-        return payService.checkPcReturn(pcPayReturn.getResultCode(), pcPayReturn.getResultMsg(), pcPayReturn.getMid(), pcPayReturn.getOrderNumber(), pcPayReturn.getAuthToken(), pcPayReturn.getAuthUrl(), pcPayReturn.getNetCancelUrl(), pcPayReturn.getCharset(), pcPayReturn.getMerchantData());
+        payService.checkPcReturn(pcPayReturn.getResultCode(), pcPayReturn.getResultMsg(), pcPayReturn.getMid(), pcPayReturn.getOrderNumber(), pcPayReturn.getAuthToken(), pcPayReturn.getAuthUrl(), pcPayReturn.getNetCancelUrl(), pcPayReturn.getCharset(), pcPayReturn.getMerchantData());
+
+        return "redirect:http://localhost:3000/PayComplete";
     }
 }
