@@ -2,6 +2,7 @@ package com.example.vuespringbootinicis.pay.service;
 
 import com.example.vuespringbootinicis.pay.domain.OrderData;
 import com.example.vuespringbootinicis.pay.repository.PayRepository;
+import com.example.vuespringbootinicis.utils.HashUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -34,13 +35,12 @@ public class PayService {
         if(!"0000".equals(resultCode)) throw new IllegalAccessException("결제 실패");
 
         OrderData orderData = payRepository.getOrder(orderNumber);
-
         // form parameters
         Map<Object, Object> data = new HashMap<>();
         data.put("mid", mid);
         data.put("authToken", authToken);
         data.put("timestamp", orderData.getTimestamp());
-        data.put("signature", orderData.getSignature());
+        data.put("signature", HashUtils.getAuthSignature(authToken, orderData.getTimestamp()));
         data.put("charset", charset);
         data.put("format", "JSON");
         data.put("price", orderData.getPrice());
@@ -62,7 +62,7 @@ public class PayService {
         // print response body
         System.out.println(response.body());
 
-        return "result";
+        return response.body();
     }
 
     public static HttpRequest.BodyPublisher ofFormData(Map<Object, Object> data) {

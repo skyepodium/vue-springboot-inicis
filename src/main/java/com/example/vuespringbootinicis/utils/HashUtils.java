@@ -11,6 +11,11 @@ public class HashUtils {
         return sha256Encrypt(params);
     }
 
+    public static String getAuthSignature(String authToken, long timestamp) {
+        String params = "authToken=" + authToken + "&timestamp=" + timestamp;
+        return sha256Encrypt(params);
+    }
+
     public static String getMkey(String mid) {
         return sha256Encrypt(mid);
     }
