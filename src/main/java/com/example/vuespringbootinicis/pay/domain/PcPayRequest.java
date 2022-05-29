@@ -1,12 +1,14 @@
 package com.example.vuespringbootinicis.pay.domain;
 
 import com.example.vuespringbootinicis.utils.HashUtils;
+import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import static java.lang.System.currentTimeMillis;
 
 @ToString
+@Getter
 @Setter
 public class PcPayRequest {
 

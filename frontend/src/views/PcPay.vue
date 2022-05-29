@@ -29,7 +29,7 @@
       <input
         type="text"
         name="price"
-        value="1200"
+        value="1000"
       >
     </form>
 
