@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script language="javascript" type="text/javascript" src="https://stdpay.inicis.com/stdjs/INIStdPay.js" charset="UTF-8"></script>
+    <title>Hello</title>
+</head>
+<body>
+    <form
+            id="PayForm"
+            method="POST"
+        >
+        <input
+                type="text"
+                name="goodname"
+                value="{{pay.goodname}}"
+        >
+        <input
+                type="text"
+                name="buyername"
+                value="{{pay.buyername}}"
+        >
+        <input
+                type="text"
+                name="buyertel"
+                value="{{pay.buyertel}}"
+        >
+        <input
+                type="text"
+                name="buyeremail"
+                value="{{pay.buyeremail}}"
+        >
+        <input
+                type="text"
+                name="price"
+                value="{{pay.price}}"
+        >
+        <input
+                type="hidden"
+                name="mid"
+                value="{{pay.mid}}"
+        >
+        <input
+                type="hidden"
+                name="gopaymethod"
+                value="Card"
+        >
+        <input
+                type="hidden"
+                name="mKey"
+                value="3a9503069192f207491d4b19bd743fc249a761ed94246c8c42fed06c3cd15a33"
+        >
+        <input
+                type="hidden"
+                name="signature"
+                value="{{pay.signature}}"
+        >
+        <input
+                type="hidden"
+                name="oid"
+                value="{{pay.oid}}"
+        >
+        <input
+                type="hidden"
+                name="timestamp"
+                value="{{pay.timestamp}}"
+        >
+        <input
+                type="hidden"
+                name="version"
+                value="1.0"
+        >
+        <input
+                type="hidden"
+                name="currency"
+                value="WON"
+        >
+        <input
+                type="hidden"
+                name="acceptmethod"
+                value="below1000"
+        >
+        <input
+                type="hidden"
+                name="returnUrl"
+                value="http://localhost:8080/api/v1/pay/return"
+        >
+        <input
+                type="hidden"
+                name="closeUrl"
+                value="http://localhost:8080/api/v1/pay/close"
+        >
+    </form>
+<script>
+    INIStdPay.pay('PayForm')
+</script>
+</body>
+</html>
